@@ -2,6 +2,7 @@ package com.knoldus.streaming.app
 
 import com.knoldus.streaming.core.SentimentAnalyzer
 import com.knoldus.streaming.json.JsonHelper._
+import com.knoldus.streaming.util.DateUtil
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.SparkConf
@@ -25,6 +26,7 @@ object StreamingApp extends App {
 
   val sparkConf = new SparkConf().setAppName("StreamingApp").setMaster("local[*]")
   sparkConf.set("es.index.auto.create", "true")
+  sparkConf.set("es.mapping.id", "id")
 
 
   val ssc = new StreamingContext(sparkConf, Seconds(5))
@@ -40,9 +42,11 @@ object StreamingApp extends App {
   val tweets = messages.map { record => parse(record.value()).extract[Map[String, String]] }
 
   val tweetSentiments: DStream[Map[String, String]] =
-    tweets.map { tweet => tweet + ("sentiment" -> SentimentAnalyzer.getSentiment(tweet("text"))) }
+    tweets.map { tweet =>
+      tweet + ("sentiment" -> SentimentAnalyzer.getSentiment(tweet("text"))) + ("created_at" -> DateUtil.getESDateFormat(tweet("created_at")))
+    }
   tweetSentiments.foreachRDD {
-    tweetRDD => tweetRDD.saveToEs("analysis/twitter")
+    tweetRDD => tweetRDD.saveToEs("analysis_index/twitter")
   }
 
   ssc.start()
