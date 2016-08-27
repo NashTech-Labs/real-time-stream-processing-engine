@@ -12,15 +12,13 @@ This is an activator project. It describes how to build sentiment analysis engin
         
         
 ####Kafka Setup
-i) [Download](http://kafka.apache.org/downloads.html) the Kafka-0.10.0.1 or latest version  and unzip it.
+ i) [Download](http://kafka.apache.org/downloads.html) the Kafka-0.10.0.1 or latest version  and unzip it.
 
-ii) Run the following command.
-
-    Start zookeeper & Kafka:
+ ii) Run the following commands for starting Zookeeper & Kafka:
     
-       $ bin/zookeeper-server-start.sh config/zookeeper.properties 
-       $ bin/kafka-server-start.sh config/server.properties
-         
+        $ bin/zookeeper-server-start.sh config/zookeeper.properties 
+        $ bin/kafka-server-start.sh config/server.properties
+        
 -----------------------------------------------------------------------
 ###Getting Started:
 -----------------------------------------------------------------------
