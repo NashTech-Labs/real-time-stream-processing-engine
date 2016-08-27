@@ -1,22 +1,32 @@
-#activator-play-elasticsearch-autocomplete
+#sentiment-analysis-engine
 
-This is a Play activator project.It describes how to build autocomplete search on the Elasticsearch.
+This is an activator project.It describes how to build sentiment analysis engine using Spark Streaming, Kafka & Elasticsearch.
 
 #Pre-Requisites for this project
+####Elasticsearch Setup
+  i) [Download](https://www.elastic.co/downloads/elasticsearch) the Elasticsearch 5.0.0-alpha5 or latest version  and unzip it.
 
-i) [Download](https://www.elastic.co/downloads/elasticsearch) the latest version of Elasticsearch official distribution and unzip it.
-
-ii) Run the following command.
+  ii) Run the following command.
 
         $ ./bin/elasticsearch
+        
+        
+####Kafka Setup
+i) [Download](http://kafka.apache.org/downloads.html) the Kafka-0.10.0.1 or latest version  and unzip it.
 
-
+ii) Run the following command.
+    Start zookeeper & Kafka:
+    
+         $ bin/zookeeper-server-start.sh config/zookeeper.properties 
+         $ bin/kafka-server-start.sh config/server.properties
+         
 -----------------------------------------------------------------------
 ###Getting Started:
 -----------------------------------------------------------------------
 
- Clone the code:
+ Clone the code & run (This is for spark local mode):
 
-        $ git clone git@github.com:knoldus/activator-play-elasticsearch-autocomplete.git
-        $ cd activator-play-elasticsearch-autocomplete
+        $ git@github.com:knoldus/sentiment-analysis-engine.git
+        $ cd sentiment-analysis-engine
+        $ bin/activator run
 
