@@ -1,0 +1,7 @@
+//known issue with netty4
+// bin/elasticsearch -Ehttp.type=netty3
+//https://www.elastic.co/guide/en/elasticsearch/reference/master/breaking-changes-5.0.html
+//https://discuss.elastic.co/t/write-es-error-with-spark-2-0-release/56967/6
+
+//https://github.com/apache/spark/blob/master/external/kafka-0-10/src/test/scala/org/apache/spark/streaming/kafka010/DirectKafkaStreamSuite.scala
+// https://github.com/shekhargulati/52-technologies-in-2016/tree/master/03-stanford-corenlp

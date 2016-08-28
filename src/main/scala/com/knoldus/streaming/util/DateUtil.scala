@@ -57,10 +57,10 @@ object DateUtil {
     "dd-MMM-yyyy")
 
 
-  private  val esDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+  private val esDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ")
 
   def getESDateFormat(dateString: String): String = {
-    def getDate(dateFormats: Seq[String], dateString: String): String = {
+    def getDate(dateFormats: Seq[String], dateString: String): String =
       try {
         val dateFormat = new SimpleDateFormat(dateFormats.head)
         val date = dateFormat.parse(dateString)
@@ -69,7 +69,8 @@ object DateUtil {
         case _ if (dateFormats.size > 1) => getDate(dateFormats.tail, dateString)
         case _: Exception => esDateFormat.format(new Date())
       }
-    }
     getDate(dateFormats, dateString)
   }
+
 }
+
