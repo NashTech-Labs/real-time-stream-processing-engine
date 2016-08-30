@@ -33,5 +33,6 @@ This is an example of real time stream processing using Spark Streaming, Kafka &
         
         
 ##Limitations
-1) Elasticsearch 5.0.0-alpha5 is not production ready.
-2) Kafka-0.10.0.1 is experimental in current spark version(spark-2.0.0).
+ 1) Elasticsearch 5.0.0-alpha5 is not production ready.
+ 
+ 2) Kafka-0.10.0.1 is experimental in current spark version(spark-2.0.0).
