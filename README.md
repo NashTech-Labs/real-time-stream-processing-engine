@@ -1,6 +1,8 @@
-#sentiment-analysis-engine
+#real-time-stream-processing-engine
 
-This is an activator project. It describes how to build sentiment analysis engine using Spark Streaming,Stanford CoreNLP, Kafka & Elasticsearch.
+This is an example of real time stream processing using Spark Streaming, Kafka & Elasticsearch.
+
+![alt tag](/doc/stream_processing.png)
 
 #Pre-Requisites for this project
 ####Elasticsearch Setup
@@ -23,9 +25,13 @@ This is an activator project. It describes how to build sentiment analysis engin
 ###Getting Started:
 -----------------------------------------------------------------------
 
- Clone the code & run (This is for spark local mode):
+ Clone and run in local mode:
 
         $ git@github.com:knoldus/sentiment-analysis-engine.git
         $ cd sentiment-analysis-engine
         $ bin/activator run
-
+        
+        
+##Limitations
+1) Elasticsearch 5.0.0-alpha5 is not production ready.
+2) Kafka-0.10.0.1 is experimental in current spark version(spark-2.0.0).

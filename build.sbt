@@ -1,4 +1,4 @@
-name := """sentiment-analysis-engine"""
+name := """real-time-stream-processing-engine"""
 
 version := "1.0"
 
